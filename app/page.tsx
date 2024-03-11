@@ -51,11 +51,16 @@ export default function Home() {
   }
 
   return (
-    <div className="container p-4 mx-auto">
-      <p className='text-slate-300 text-[13px] IRANSansBold'>{farsiDay(day)} {date} -  <Clock className='IRANSansBold' format={'HH:mm:ss'} ticking={true} />
+    <div className="container flex flex-col items-center p-4 mx-auto">
+      <p className='text-white text-[13px] IRANSansBold'>{farsiDay(day)} {date} -  <Clock className='IRANSansBold' format={'HH:mm:ss'} ticking={true} />
       </p>
       <div className="flex justify-center items-center">
         <CalculateTime />
+      </div>
+      <div className='mt-auto text-sm mx-auto text-center absolute bottom-0 pb-3'>
+        <p className='text-white'>
+          Done with ☕️ and ❤️  By <a className='text-center text-cyan-300 underline' href="https://www.linkedin.com/in/alirbi" target='_blank'>Ali Rabiei</a>
+        </p>
       </div>
     </div>
   );

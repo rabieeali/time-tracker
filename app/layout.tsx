@@ -5,7 +5,7 @@ import SessionProvider from './components/SessionProvider'
 
 export const metadata: Metadata = {
   title: "Mosbat Sabz - Time Tracker",
-  description: "Done By MosbatSabz Frontend Devs For Co-Workers",
+  description: "Done By MosbatSabz Ali Rabiee (Frontend Dev) For Co-Workers, enjoy!",
 };
 
 export default async function RootLayout({
@@ -18,7 +18,7 @@ export default async function RootLayout({
     <html lang="fa-IR" dir="rtl">
       <body>
         <SessionProvider>
-        {children}
+          {children}
         </SessionProvider>
       </body>
     </html>
