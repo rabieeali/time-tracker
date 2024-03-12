@@ -1,6 +1,8 @@
 'use client';
-
 import { useEffect, useState } from "react";
+import confetti from 'canvas-confetti'
+
+
 const HR_REGEX = /^([01][0-9]|2[0-3])$/
 const MIN_REGEX = /^([0-5][0-9])$/
 
@@ -10,6 +12,7 @@ export default function CalculateTime() {
     const [isValid, setIsValid] = useState(false)
     const [isRange, setIsRange] = useState(false)
     const [leaveTime, setLeaveTime] = useState('')
+
 
     const calculateLeaveTime = (hr: string, min: string) => {
         const totalEntranceMinutes = (+hr * 60) + (+min);
@@ -27,13 +30,16 @@ export default function CalculateTime() {
         if (!HR_REGEX.test(hr) || !MIN_REGEX.test(min)) {
             return setIsValid(true)
         }
-
         if (['00', '01', '02', '03', '04', '05', '06', '07', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24'].includes(hr)) {
             return setIsRange(true)
         }
 
         const leave = calculateLeaveTime(hr, min)
-
+        confetti({
+            particleCount: 200,
+            spread: 100,
+            origin: { y: 0.5}
+        })
         return setLeaveTime(leave)
     }
 
@@ -72,6 +78,6 @@ export default function CalculateTime() {
                 className="text-[13px] block mx-auto mt-auto mb-5 gap-4 bg-blue-500 text-white hover:bg-blue-200 hover:text-blue-500 transition px-4 py-2 rounded-md">
                 محاسبه زمان خروج
             </button>
-        </div>
+        </div >
     )
 }
